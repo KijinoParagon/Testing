@@ -6,7 +6,7 @@
 
 html {
     background-color: rgb(160, 160, 160);
-    background-image: url(img/black.jpg), url(img/bg.png);
+    background-image: url(../img/black.jpg), url(../img/bg.png);
     background-repeat: no-repeat;
     background-size: 150%, 150%, 150%, 150%;
     background-attachment: fixed;
@@ -30,14 +30,17 @@ header {
     display: block;
     width: 100%;
     min-height: 15vh;
-    /*background-image: url(img/bg.png);
-    background-repeat: repeat-x;
-    background-size: cover;
-    background-position-y: 40%;*/
 }
 
-nav {
-    
+header h1 {
+    font-family: "Gill Sans", sans-serif;
+    font-weight: 100;
+    text-align: center;
+    letter-spacing: 0.5em;
+}
+
+input {
+    color: black;
 }
 
 nav ul {
@@ -45,14 +48,32 @@ nav ul {
     display: block;
     width: 100%;
     min-width: 100%;
+    position: relative;
 }
 
-nav ul li {
+nav li {
     display: block;
     background-image: linear-gradient(to bottom right, orchid, rebeccapurple);
     float: left;
     width: 25%;
     margin: auto;
+    position: relative;
+}
+
+nav ul ul {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+nav li:hover ul, nav li ul:hover {
+    display:block;
+}
+
+nav ul ul li {
+    float: none;
+    width: 100%;
 }
 
 @media (max-width: 400px)
