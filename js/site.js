@@ -1,4 +1,4 @@
-let file="http://kijinoparagon.github.io/Portfolio/nav.html";
+let file="https://kijinoparagon.github.io/Portfolio/nav.html";
 
 document.addEventListener("DOMContentLoaded", function() {
     var html = document.documentElement;
