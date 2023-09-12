@@ -49,7 +49,7 @@ html {
 }
 
 /*
-    Create the header element
+    Header styles
 */
 
 header {
@@ -65,19 +65,19 @@ header h1 {
     letter-spacing: 0.5em;
 }
 
+/*
+    Nav styles
+*/
 
-
-
-    /*
-    input {
-        color: black;
-    }*/
+nav {
+    position: absolute;
+    width: 100%;
+}
 
 nav ul {
     list-style-type: none;
     display: block;
     width: 100%;
-    min-width: 100%;
 }
 
 nav li {
@@ -88,6 +88,39 @@ nav li {
     margin: auto;
     position: relative;
 }
+
+.navSection {
+    font-size: 2.5em;
+}
+.subNav {
+    font-size: 1.5em;
+    display: none;
+}
+
+@media (min-width: 601px)
+{
+
+    nav {
+        position: relative;
+        clear: both;
+    }
+
+    nav li:hover + .subNav, .subNav:hover {
+        display: block;
+    }
+
+    .subNav {
+        position: absolute;
+        top: 100%;
+        left: 0px;
+    }
+
+    .clearfix {
+        clear:both;
+    }
+}
+
+
 
     /*
     nav ul {
