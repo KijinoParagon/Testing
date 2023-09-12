@@ -24,7 +24,7 @@ html {
     font-size: 25px;
 }
 
-@media (max-width: 400px)
+@media (max-width: 600px)
 {
     html {
         background-size: 300%, 300%, 150%, 150%;
@@ -34,7 +34,7 @@ html {
 /*
     Create the body background on desktop
 */
-@media (min-width: 401px)
+@media (min-width: 601px)
 {
     body {
         background-color: rgba(0, 0, 0, 0.674);
