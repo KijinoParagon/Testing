@@ -1,0 +1,124 @@
+/*
+    Reset stylesheet/Default Font Color
+*/
+* {
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+
+
+/*
+    Background styles and font size
+*/
+html {
+    background-color: rgb(160, 160, 160);
+    background-image: url(../img/black.jpg), url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-size: 150%, 150%, 150%, 150%;
+    background-attachment: fixed;
+    background-position-x: 50%;
+    background-blend-mode: overlay;
+    min-height: 100%;
+    width: 100%;
+    font-size: 25px;
+}
+
+@media (max-width: 400px)
+{
+    html {
+        background-size: 300%, 300%, 150%, 150%;
+    }
+}
+
+/*
+    Create the body background on desktop
+*/
+@media (min-width: 401px)
+{
+    body {
+        background-color: rgba(0, 0, 0, 0.674);
+        display: block;
+        width: 90%;
+        min-height: 100vh;
+        height: 2000px;
+        margin: auto;
+        background-blend-mode: lighten;
+    }
+}
+
+/*
+    Create the header element
+*/
+
+header {
+    display: block;
+    width: 100%;
+    min-height: 15vh;
+}
+
+header h1 {
+    font-family: "Gill Sans", sans-serif;
+    font-weight: 100;
+    text-align: center;
+    letter-spacing: 0.5em;
+}
+
+
+
+
+    /*
+    input {
+        color: black;
+    }*/
+
+nav ul {
+    list-style-type: none;
+    display: block;
+    width: 100%;
+    min-width: 100%;
+}
+
+nav li {
+    display: block;
+    background-image: linear-gradient(to bottom right, orchid, rebeccapurple);
+    float: left;
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+    /*
+    nav ul {
+        list-style-type: none;
+        display: block;
+        width: 100%;
+        min-width: 100%;
+        position: relative;
+    }
+
+    nav li {
+        display: block;
+        background-image: linear-gradient(to bottom right, orchid, rebeccapurple);
+        float: left;
+        width: 25%;
+        margin: auto;
+        position: relative;
+    }
+
+    
+    nav ul ul {
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: none;
+    }
+
+    nav li:hover ul, nav li ul:hover {
+        display:block;
+    }
+
+    nav ul ul li {
+        float: none;
+        width: 100%;
+    }
