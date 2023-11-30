@@ -74,13 +74,7 @@ nav {
     width: 100%;
 }
 
-nav ul {
-    list-style-type: none;
-    display: block;
-    width: 100%;
-}
-
-nav li {
+.navSection {
     display: block;
     background-image: linear-gradient(to bottom right, orchid, rebeccapurple);
     float: left;
@@ -105,9 +99,9 @@ nav li {
         clear: both;
     }
 
-    nav li:hover + .subNav, .subNav:hover {
+    /*nav li:hover + .subNav, .subNav:hover {
         display: block;
-    }
+    }*/
 
     .subNav {
         position: absolute;
@@ -120,7 +114,12 @@ nav li {
     }
 }
 
-
+.animBox {
+    width: 100%;
+    height: 600px;
+    outline: 5px inset green;
+    /*background-color: hsl(0, 0%, 30%);*/
+}
 
     /*
     nav ul {

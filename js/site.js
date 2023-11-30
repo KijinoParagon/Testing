@@ -1,19 +1,15 @@
-let file="https://kijinoparagon.github.io/Portfolio/nav.html";
-
 document.addEventListener("DOMContentLoaded", function() {
     var html = document.documentElement;
     var height = html.offsetHeight;
-    var navSections = document.querySelectorAll(".navSection");
-
-    fetch(file)
-    .then(x => x.text())
-    .then(y => document.getElementById("navContainer").innerHTML = y);
 
     document.addEventListener("scroll", function() {
         var pos = window.scrollY/height*100;
         html.style.backgroundPositionY = (pos + "%");
     });
 
+    
+
+    var navSections = document.querySelectorAll(".navSection");
     
     //Mobile Rules
     if (screen.width < 601)
