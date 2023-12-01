@@ -5,6 +5,10 @@
   </head>
   <body>
     <a-scene>
+      <a-assets>
+        <a-asset-item id="mall" src="https://cdn.aframe.io/test-models/models/glTF-2.0/virtualcity/VC.gltf"></a-asset-item>
+      </a-assets>
+      <a-entity gltf-model="#mall"></a-entity>
       <a-box id="click" position="-1 0 -3" rotation="0 45 0"></a-box>
       <a-sphere position="0 3 -5" radius="1.25" color="#EF2D5E" material="src: img/bg.png;"></a-sphere>
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
