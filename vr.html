@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
@@ -8,6 +9,9 @@
       <a-assets>
         <a-asset-item id="mall" src="https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@Test/models/mallExport.glb"></a-asset-item>
       </a-assets>
+      <a-entity player id="rig" position="0 1.6 0">
+        <a-entity id="camera" camera look-controls></a-entity>
+      </a-entity>
       <a-entity oculus-go-controls></a-entity>
       <a-entity gltf-model="#mall"></a-entity>
       <a-sphere position="0 3 -5" radius="1.25" color="#EF2D5E" material="src: img/bg.png;"></a-sphere>
