@@ -1,38 +1,38 @@
-var speed = 1;
-AFRAME.registerComponent('test', {
+AFRAME.registerComponent('jump', {
 
-    init: function () {
-      var data = this.data;
-      var el = this.el;
+  schema: {
+    speed: {type: 'int', default: 1}
+  },
 
-      el.addEventListener('buttondown', function (evt) {
-        console.log(evt);
-        speed = 1;
-      });
+  init: function () {
+    var el = this.el;
+    
+    document.addEventListener('xbuttondown', () => {
+      this.data.speed = 1;
+    });
 
-      el.addEventListener('onkeydown', function (evt) {
-        console.log(evt);
-        speed = 1;
-      });
+    document.addEventListener('keydown', () => {
+      this.data.speed = 1;
+    });
 
-    },
+  },
 
-    tick: function() {
-        var pos = this.el.object3D.position;
-        pos.y += speed;
-        //console.log(speed, pos.y);
-        if(speed > -1 && pos.y > 1.6) {
-            speed-=0.05;
-        }
-        if(pos.y <= 1.6)
-        {
-            speed = 0;
-        }
+  tick: function() {
+      var pos = this.el.object3D.position;
+      pos.y += this.data.speed;
+      //console.log(speed, pos.y);
+      if(this.data.speed > -1 && pos.y > 1.6) {
+        this.data.speed-=0.05;
+      }
+      if(pos.y < 1.6)
+      {
+          this.data.speed = 0;
+      }
 
-        if(pos.y < 1.6)
-        {
-            pos.y = 1.6;
-        }
+      if(pos.y < 1.6)
+      {
+          pos.y = 1.6;
+      }
 
-    }
-  });
+  }
+});
