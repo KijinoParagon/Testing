@@ -1,4 +1,4 @@
-AFRAME.registerComponent('jump', {
+AFRAME.registerComponent('keyboardControls', {
 
   schema: {
     speed: {type: 'int', default: 1}
@@ -6,12 +6,12 @@ AFRAME.registerComponent('jump', {
 
   init: function () {
     var el = this.el;
-    
-    document.addEventListener('xbuttondown', () => {
+
+    document.addEventListener('keydown', () => {
       this.data.speed = 1;
     });
 
-    document.addEventListener('keydown', () => {
+    document.addEventListener('abuttondown', () => {
       this.data.speed = 1;
     });
 
