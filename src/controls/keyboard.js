@@ -42,8 +42,8 @@ AFRAME.registerComponent('keyboardcontrols', {
 
   moveupdate: function(evt) {
     console.log(evt);
-    if (evt.detail.y > 0.95 || evt.detail.y < -0.95) { this.data.speed.z = evt.detail.y }
-    if (evt.detail.x > 0.95 || evt.detail.x < -0.95) { this.data.speed.x = evt.detail.x }
+    if (evt.detail.y > 0 || evt.detail.y < 0) { this.data.speed.z = evt.detail.y; document.querySelector('a-sky').setAttribute('color', 'purple') }
+    if (evt.detail.x > 0 || evt.detail.x < 0) { this.data.speed.x = evt.detail.x; document.querySelector('a-sky').setAttribute('color', 'purple')}
 
   }
 });
