@@ -7,29 +7,20 @@ AFRAME.registerComponent('keyboardcontrols', {
   init: function () {
     var el = this.el;
     document.addEventListener('keydown', () => {
-      this.data.speed.y = 1;
+      if(!this.data.speed.y > 0)
+      {
+        this.data.speed.y = 1;
+      }
     });
 
-    document.addEventListener('abuttonchanged', () => {
-      this.data.speed.y = 1;
-      document.querySelector('a-sky').setAttribute('color', 'red');
+    document.addEventListener('abuttondown', () => {
+      if(!this.data.speed.y > 0)
+      {
+        this.data.speed.y = 1;
+      }
     });
-    document.addEventListener('xbuttonchanged', () => {
-      this.data.speed.y = 1;
-      document.querySelector('a-sky').setAttribute('color', 'red');
-    });
-    document.addEventListener('ybuttonchanged', () => {
-      this.data.speed.y = 1;
-      document.querySelector('a-sky').setAttribute('color', 'red');
-    });
-    document.addEventListener('bbuttonchanged', () => {
-      this.data.speed.y = 1;
-      document.querySelector('a-sky').setAttribute('color', 'red');
-    });
-    document.addEventListener('gripchanged', () => {
-      this.data.speed.y = 1;
-      document.querySelector('a-sky').setAttribute('color', 'red');
-    });
+
+    document.addEventListener('thumbstickchanged', this.moveupdate);
 
   },
 
@@ -39,14 +30,20 @@ AFRAME.registerComponent('keyboardcontrols', {
       pos.y += this.data.speed.y;
       pos.z += this.data.speed.z;
       //console.log(speed, pos.y);
-      if(this.data.speed.y > -1 && pos.y > 1.6) {
+      if(this.data.speed.y > -1 && pos.y > 0) {
         this.data.speed.y-=0.05;
       }
-      if(pos.y < 1.6)
+      if(pos.y < 0)
       {
           this.data.speed.y = 0;
-          pos.y = 1.6
+          pos.y = 0
       }
+  },
+
+  moveupdate: function(evt) {
+    console.log(evt);
+    if (evt.detail.y > 0.95 || evt.detail.y < -0.95) { this.data.speed.z = evt.detail.y }
+    if (evt.detail.x > 0.95 || evt.detail.x < -0.95) { this.data.speed.x = evt.detail.x }
 
   }
 });

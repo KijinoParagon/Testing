@@ -4,6 +4,7 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="src/controls.js" defer></script>
     <script src="src/controls/keyboard.js" defer></script>
+    <script src="src/controls/sticks.js" defer></script>
   </head>
   <body>
     <a-scene>
@@ -12,12 +13,12 @@
         <a-asset-item id="mall" src="https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@Test/models/mallExport.glb"></a-asset-item>
       </a-assets>
 
-      <a-entity oculus-touch-controls="hand: left"></a-entity>
+      <a-entity test oculus-touch-controls="hand: left"></a-entity>
       <a-entity oculus-touch-controls="hand: right"></a-entity>
 
 
       <!--Objects-->
-      <a-entity id="player" position="0 1.6 0" keyboardcontrols>
+      <a-entity id="player" position="0 0 0" keyboardcontrols>
         <a-entity camera look-controls></a-entity>
       </a-entity>
       
