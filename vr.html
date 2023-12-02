@@ -2,8 +2,8 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="vrScripts/vrInteractions.js" defer></script>
-    <script src="vrScripts/controls.js" defer></script>
+    <script src="src/controls.js" defer></script>
+    <script src="src/controls/keyboard.js" defer></script>
   </head>
   <body>
     <a-scene>
@@ -12,20 +12,19 @@
         <a-asset-item id="mall" src="https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@Test/models/mallExport.glb"></a-asset-item>
       </a-assets>
 
-      <!-- Vive -->
-      <a-entity vive-controls="hand: left"></a-entity>
-      <a-entity vive-controls="hand: right"></a-entity>
-      <!-- Oculus -->
       <a-entity oculus-touch-controls="hand: left"></a-entity>
       <a-entity oculus-touch-controls="hand: right"></a-entity>
 
+
       <!--Objects-->
-      <a-entity keyboard id="player" position="0 1.6 0">
-        <a-camera><a-cursor></a-cursor></a-entity>
+      <a-entity id="player" position="0 1.6 0" keyboardcontrols>
+        <a-entity camera look-controls></a-entity>
       </a-entity>
+      
+
       <a-entity gltf-model="#mall"></a-entity>
       <a-sphere position="0 3 -5" radius="1.25" color="#EF2D5E" material="src: img/bg.png;"></a-sphere>
-      <a-sky  material="src: img/bg.png;"></a-sky>
+      <a-sky color="green"></a-sky>
     </a-scene>
   </body>
 </html>
