@@ -22,6 +22,7 @@ AFRAME.registerComponent('keyboardcontrols', {
     });
 
     document.addEventListener('thumbstickchanged', this.colordebug(0));
+    document.addEventListener('thumbstickchanged', this.moveupdate());
     document.addEventListener('thumbstickdown', this.colordebug(1));
     document.addEventListener('thumbstickup', this.colordebug(2));
     document.addEventListener('thumbsticktouchstart', this.colordebug(3));
