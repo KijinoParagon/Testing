@@ -21,12 +21,12 @@ AFRAME.registerComponent('keyboardcontrols', {
       }
     });
 
-    document.addEventListener('thumbstickchanged', colordebug(0));
-    document.addEventListener('thumbstickdown', colordebug(1));
-    document.addEventListener('thumbstickup', colordebug(2));
-    document.addEventListener('thumbsticktouchstart', colordebug(3));
-    document.addEventListener('thumbsticktouchend', colordebug(4));
-    document.addEventListener('thumbstickmoved', colordebug(5));
+    document.addEventListener('thumbstickchanged', this.colordebug(0));
+    document.addEventListener('thumbstickdown', this.colordebug(1));
+    document.addEventListener('thumbstickup', this.colordebug(2));
+    document.addEventListener('thumbsticktouchstart', this.colordebug(3));
+    document.addEventListener('thumbsticktouchend', this.colordebug(4));
+    document.addEventListener('thumbstickmoved', this.colordebug(5));
 
   },
 
