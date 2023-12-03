@@ -21,7 +21,12 @@ AFRAME.registerComponent('keyboardcontrols', {
       }
     });
 
-    document.addEventListener('thumbstickchanged', this.moveupdate);
+    document.addEventListener('thumbstickchanged', colordebug(0));
+    document.addEventListener('thumbstickdown', colordebug(1));
+    document.addEventListener('thumbstickup', colordebug(2));
+    document.addEventListener('thumbsticktouchstart', colordebug(3));
+    document.addEventListener('thumbsticktouchend', colordebug(4));
+    document.addEventListener('thumbstickmoved', colordebug(5));
 
   },
 
@@ -46,5 +51,34 @@ AFRAME.registerComponent('keyboardcontrols', {
     if (evt.detail.y > 0 || evt.detail.y < 0) { this.data.speed.z = evt.detail.y; document.querySelector('a-sky').setAttribute('color', 'purple') }
     if (evt.detail.x > 0 || evt.detail.x < 0) { this.data.speed.x = evt.detail.x; document.querySelector('a-sky').setAttribute('color', 'purple')}
 
+  },
+
+  colordebug: function(x) {
+    var color = '';
+    switch(x){
+      case 0:
+        color = 'grey';
+        break;
+      case 1:
+        color = 'blue';
+        break;
+      case 2:
+        color = 'black';
+        break;
+      case 3:
+        color = 'purple';
+        break;
+      case 4:
+        color = 'orange';
+        break;
+      case 5:
+        color = 'pink';
+        break;
+      case 6:
+        color = 'yellow';
+        break;
+
+    }
+    document.querySelector('a-sky').setAttribute('color', color)
   }
 });
