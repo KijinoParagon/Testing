@@ -1,7 +1,8 @@
 AFRAME.registerComponent('keyboardcontrols', {
 
   schema: {
-    speed: {type: 'vec3', default: {x: 0, y: 1, z: 0}}
+    speed: {type: 'vec3', default: {x: 0, y: 1, z: 0}},
+    hand: {default: 'left'}
   },
 
   init: function () {
