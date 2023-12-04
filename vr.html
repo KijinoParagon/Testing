@@ -3,6 +3,7 @@
   <head>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="src/components/keyboard.js" defer></script>
+    <script src="src/debug/debug.js" defer></script>
   </head>
   <body>
     <a-scene>
@@ -16,7 +17,7 @@
 
 
       <!--Objects-->
-      <a-entity id="player" position="0 0 0" keyboardcontrols>
+      <a-entity id="player" position="0 0 0" keyboardcontrols debug-stick>
         <a-entity camera look-controls><a-cursor></a-cursor></a-entity>
       </a-entity>
       

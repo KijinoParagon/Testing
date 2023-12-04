@@ -7,7 +7,8 @@ AFRAME.registerComponent('keyboardcontrols', {
 
   init: function () {
     var el = this.el;
-    document.addEventListener('keydown', () => {
+    var self = this;
+    document.addEventListener('keydown', (evt) => {
       if(!this.data.speed.y > 0)
       {
         this.data.speed.y = 1;
@@ -20,14 +21,21 @@ AFRAME.registerComponent('keyboardcontrols', {
         this.data.speed.y = 1;
       }
     });
+    
 
-    document.addEventListener('thumbstickchanged', this.colordebug(0));
-    document.addEventListener('thumbstickchanged', this.moveupdate());
-    document.addEventListener('thumbstickdown', this.colordebug(1));
-    document.addEventListener('thumbstickup', this.colordebug(2));
-    document.addEventListener('thumbsticktouchstart', this.colordebug(3));
-    document.addEventListener('thumbsticktouchend', this.colordebug(4));
-    document.addEventListener('thumbstickmoved', this.colordebug(5));
+    //document.addEventListener('thumbstickchanged', this.colordebug(0));
+    
+    //document.addEventListener('thumbstickmoved', this.moveupdate);
+    document.addEventListener('thumbstickmoved', function(evt) {
+      self.moveupdate(self, evt);
+    });
+    
+    //document.addEventListener('thumbstickdown', this.colordebug(1));
+    //document.addEventListener('thumbstickup', this.colordebug(2));
+    //document.addEventListener('thumbsticktouchstart', this.colordebug(3));
+    //document.addEventListener('thumbsticktouchend', this.colordebug(4));
+    //document.addEventListener('thumbstickmoved', this.colordebug(5));
+    
 
   },
 
@@ -47,11 +55,18 @@ AFRAME.registerComponent('keyboardcontrols', {
       }
   },
 
-  moveupdate: function(evt) {
-    console.log(evt);
-    if (evt.detail.y > 0 || evt.detail.y < 0) { this.data.speed.z = evt.detail.y; document.querySelector('a-sky').setAttribute('color', 'purple') }
-    if (evt.detail.x > 0 || evt.detail.x < 0) { this.data.speed.x = evt.detail.x; document.querySelector('a-sky').setAttribute('color', 'purple')}
+  moveupdate: function(player, evt) {
 
+    this.data.speed.x = evt.detail.x/8;
+    this.data.speed.z = evt.detail.y/8;
+    
+  },
+
+  testfu: function(evt, t) {
+    console.log(t);
+    //console.log(evt.target);
+    console.log(evt);
+    //console.log(x);
   },
 
   colordebug: function(x) {
