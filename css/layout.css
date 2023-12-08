@@ -76,7 +76,7 @@ nav {
 
 .navSection {
     display: block;
-    background-image: linear-gradient(to bottom right, orchid, rebeccapurple);
+    background-image: linear-gradient(to bottom right, darkgrey, darkslategrey);
     float: left;
     width: 100%;
     margin: auto;
