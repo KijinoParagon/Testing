@@ -9,6 +9,10 @@ AFRAME.registerComponent('keyboardcontrols', {
   init: function () {
     var el = this.el;
     var self = this;
+
+    document.querySelector("a-scene").addEventListener('enter-vr', () => this.data.height = 0);
+    document.querySelector("a-scene").addEventListener('exit-vr', () => this.data.height = 1.6);
+    
     document.addEventListener('keydown', (evt) => {
       if(!this.data.speed.y > 0 && evt.key == " ")
       {
@@ -88,31 +92,4 @@ AFRAME.registerComponent('keyboardcontrols', {
     this.data.speed.x = evt.detail.x/8;
     this.data.speed.z = evt.detail.y/8;
   },
-});
-
-AFRAME.registerComponent('clickable', {
-  init: function() {
-    console.log(this.el);
-    this.el.addEventListener('onclick', (evt) => {
-      console.log("clicked")
-      var sp = {x: 0, y: 0, z: 0};
-      console.log(evt);
-      /*switch (evt.key) {
-        case "w":
-          sp.y = 0;
-          break;
-        case "a":
-          sp.x = 0;
-          break;
-        case "s":
-          sp.y = 0;
-          break;
-        case "d":
-          sp.x = 0;
-          break;
-      }*/
-
-    });
-  }
-
 });

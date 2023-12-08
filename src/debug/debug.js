@@ -17,15 +17,8 @@ AFRAME.registerComponent('debug-stick', {
         location.href = location.href.slice(0, -7) + "/logs?log=" + array.toString();
         document.querySelector('a-sky').setAttribute('color', 'green');
     });
-
-    //document.addEventListener('thumbstickmoved', (evt) => {array.push(evt.details); array.push("<br>"); array.push(JSON.stringify(evt.details))});
-    //document.addEventListener('thumbstickmoved', this.logthumb);
     document.addEventListener('thumbstickmoved', this.logthumb);
-    //document.addEventListener('thumbstickdown', (evt) => {array.push(evt.type)});
-    //document.addEventListener('thumbstickup', (evt) => {array.push(evt.type)});
-    //document.addEventListener('thumbsticktouchstart', (evt) => {array.push(evt.type)});
-    //document.addEventListener('thumbsticktouchend',(evt) => {array.push(evt.type)});
-    //document.addEventListener('thumbstickmoved', (evt) => {array.push(evt.type)});
+
   },
   
   logthumb: function(evt) {
