@@ -74,12 +74,12 @@ AFRAME.registerComponent('keyboardcontrols', {
     });
   },
 
-  moveupdate: function(evt) {
-    var i = evt.detail.x/8 * Math.cos(document.querySelector("#camera").object3D.rotation._y);
-    var j = evt.detail.y/8 * Math.cos(document.querySelector("#camera").object3D.rotation._y);
+  moveupdate: function(evt) {    
+    var i = evt.detail.x/8 * Math.cos(document.querySelector("#camera").object3D.rotation._y); 
+    var j = evt.detail.y/8 * Math.cos(document.querySelector("#camera").object3D.rotation._y);//done
 
-    i += evt.detail.y/8 * Math.sin(document.querySelector("#camera").object3D.rotation._y);
-    j += evt.detail.x/8 * Math.sin(document.querySelector("#camera").object3D.rotation._y);
+    i += evt.detail.y/8 * Math.sin(document.querySelector("#camera").object3D.rotation._y);//done
+    j += evt.detail.x/8 * Math.sin(document.querySelector("#camera").object3D.rotation._y) * -1;
 
     this.data.player.speed.x = i;
     this.data.player.speed.z = j;
