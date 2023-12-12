@@ -1,7 +1,5 @@
 //Pressing the abutton will submit data to the debug page, displaying logs of the stick events
 
-
-var array = ["Test"]
 AFRAME.registerComponent('debug-stick', {
 
   schema: {

@@ -3,35 +3,37 @@ AFRAME.registerComponent('keyboardcontrols', {
   schema: {
     speed: {type: 'vec3', default: {x: 0, y: 1, z: 0}},
     hand: {default: 'left'},
-    height: {default: 1.6}
+    height: {default: 1.6},
+    player: {}
   },
 
   init: function () {
     var el = this.el;
     var self = this;
 
-    document.querySelector("a-scene").addEventListener('enter-vr', () => this.data.height = 0);
-    document.querySelector("a-scene").addEventListener('exit-vr', () => this.data.height = 1.6);
-    
+
+    this.data.player = el.components.player.data;
+
     document.addEventListener('keydown', (evt) => {
-      if(!this.data.speed.y > 0 && evt.key == " ")
+      if(!this.data.player.speed.y > 0 && evt.key == " ")
       {
-        this.data.speed.y = .5;
+        this.data.player.speed.y = .5;
       }
     });
 
     document.addEventListener('abuttondown', () => {
-      if(!this.data.speed.y > 0)
+      if(!this.data.player.speed.y > 0)
       {
-        this.data.speed.y = 1;
+        this.data.player.speed.y = 1;
       }
     });
 
     document.addEventListener('keypress', (evt) => {
       var sp = {x: 0, y: 0, z: 0};
+
       switch (evt.key) {
         case "w":
-          sp.y = -1;
+          sp.y = -1 ;
           break;
         case "a":
           sp.x = -1;
@@ -72,24 +74,14 @@ AFRAME.registerComponent('keyboardcontrols', {
     });
   },
 
-  tick: function() {
-      var pos = this.el.object3D.position;
-      pos.x += this.data.speed.x;
-      pos.y += this.data.speed.y;
-      pos.z += this.data.speed.z;
-      //console.log(this.data.speed, pos.y);
-      if(this.data.speed.y > -1 && pos.y > this.data.height) {
-        this.data.speed.y-=0.05;
-      }
-      if(pos.y < this.data.height)
-      {
-          this.data.speed.y = 0;
-          pos.y = this.data.height;
-      }
-  },
-
   moveupdate: function(evt) {
-    this.data.speed.x = evt.detail.x/8;
-    this.data.speed.z = evt.detail.y/8;
+    var i = evt.detail.x/8 * Math.cos(document.querySelector("#camera").object3D.rotation._y);
+    var j = evt.detail.y/8 * Math.cos(document.querySelector("#camera").object3D.rotation._y);
+
+    i += evt.detail.y/8 * Math.sin(document.querySelector("#camera").object3D.rotation._y);
+    j += evt.detail.x/8 * Math.sin(document.querySelector("#camera").object3D.rotation._y);
+
+    this.data.player.speed.x = i;
+    this.data.player.speed.z = j;
   },
 });

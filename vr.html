@@ -3,6 +3,7 @@
   <head>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="src/components/keyboard.js" defer></script>
+    <script src="src/components/player.js" defer></script>
     <script src="src/debug/debug.js" defer></script>
   </head>
   <body style="margin: 0px; padding: 0px;">
@@ -13,13 +14,12 @@
           <a-asset-item id="mall" src="https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@Test/models/mallExport.glb"></a-asset-item>
         </a-assets>
 
-        <a-entity oculus-touch-controls="hand: left"></a-entity>
-        <a-entity oculus-touch-controls="hand: right"></a-entity>
+        
 
 
         <!--Objects-->
-        <a-entity id="player" position="0 1.6 0" keyboardcontrols>
-          <a-entity camera look-controls>
+        <a-entity id="player" position="0 1.6 0" player keyboardcontrols>
+          <a-entity id="camera" camera look-controls>
             <a-cursor>
               <a-sphere position="1 0 0" id="right" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
               https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
@@ -30,6 +30,8 @@
               <a-sphere position="0 -.5 0" id="front" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
               https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
             </a-cursor>
+            <a-entity oculus-touch-controls="hand: left"></a-entity>
+            <a-entity oculus-touch-controls="hand: right"></a-entity>
           </a-entity>
           
         </a-entity>
