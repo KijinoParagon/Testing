@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html style="margin: 0px; padding: 0px;">
   <head>
+    <link rel="stylesheet" href="css/gameStyles.css">
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="src/components/keyboard.js" defer></script>
     <script src="src/components/player.js" defer></script>
+    <script src="src/components/mouse.js" defer></script>
     <script src="src/debug/debug.js" defer></script>
   </head>
   <body style="margin: 0px; padding: 0px;">
@@ -21,7 +23,7 @@
         <a-entity id="player" position="0 1.6 0" player keyboardcontrols>
           <a-entity id="camera" camera look-controls>
             <a-cursor>
-              <a-sphere position="1 0 0" id="right" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
+              <!--<a-sphere position="1 0 0" id="right" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
               https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
               <a-sphere position="-1 0 0" id="left" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
               https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
@@ -29,6 +31,7 @@
               https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
               <a-sphere position="0 -.5 0" id="front" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
               https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
+              -->
             </a-cursor>
             <a-entity oculus-touch-controls="hand: left"></a-entity>
             <a-entity oculus-touch-controls="hand: right"></a-entity>
@@ -37,19 +40,15 @@
         </a-entity>
         
         <a-entity cursor="rayOrigin:mouse"></a-entity>
-        <a-entity gltf-model="#mall"></a-entity>
+        <a-entity class="terrain" gltf-model="#mall"></a-entity>
+
         <a-sphere position="0 3 -5" radius="1.25" color="#EF2D5E" material="src: img/bg.png;"></a-sphere>
         <a-sky color="green"></a-sky>
       </a-scene>
     </div>
-    <div id="cl" style="display: block;
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    min-height: 300px;
-    left: 30px;
-    top: -30px;
-    background-color: purple;
-    z-index: 9;"></div>
+    <div id="cu" class="tcMarker" name="w"></div>
+    <div id="cl" class="tcMarker" name="a"></div>
+    <div id="cr" class="tcMarker" name="d"></div>
+    <div id="cd" class="tcMarker" name="s"></div>
   </body>
 </html>

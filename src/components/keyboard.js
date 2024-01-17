@@ -29,6 +29,7 @@ AFRAME.registerComponent('keyboardcontrols', {
     });
 
     document.addEventListener('keypress', (evt) => {
+      console.log(evt);
       var sp = {x: 0, y: 0, z: 0};
 
       switch (evt.key) {

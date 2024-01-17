@@ -17,7 +17,7 @@ AFRAME.registerComponent('player', {
         this.moveUpdate();
         var quaternion = new THREE.Quaternion();
         //console.log(document.querySelector("#camera").object3D.quaternion._y * document.querySelector("#camera").object3D.quaternion._w + "  " + Math.cos(document.querySelector("#camera").object3D.rotation._y));
-        console.log(this.data.speed);
+        //console.log(this.data.speed);
         //console.log(Math.sin(document.querySelector("#camera").object3D.rotation._y));
         //console.log(Math.cos(180));
         //this.data.camera = document.querySelector("#camera").object3D.getWorldQuaternion();

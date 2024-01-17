@@ -1,0 +1,28 @@
+.tcMarker
+{
+    display: block;
+    position: absolute;
+    width: 7.5vw;
+    height: 7.5vw;
+    min-height: 7.5vw;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9;
+}
+
+#cu {
+    left: 46.25vw;
+    top: 2.8vh;
+}
+#cl {
+    left: 89.6vw;
+}
+#cr {
+    left: 2.8vw;
+}
+#cl, #cr {
+    top: calc(50vh - 3.75vw);
+}
+#cd {
+    left: 46.25vw;
+    top: calc(100vh - 2.8vw - 7.5vw);
+}
