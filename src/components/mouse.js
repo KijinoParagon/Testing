@@ -2,10 +2,11 @@ function clickMove (type, key) {
     var evt;
     switch (type){
         case "up":
-            evt = new Event("keyup", {key: key, asdf: "andy"});
+            evt = new CustomEvent("keyup", {detail:{key: key.value}});
         case "down":
-            evt = new Event("keypress", {key: key, asdf: "andy"});
+            evt = new CustomEvent("keypress", {detail:{key: key.value}});
     }
+    //console.log(evt);
     document.dispatchEvent(evt);
 }
 
