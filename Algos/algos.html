@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html { background-color: black; color: white;}
+            #canv { background-color: white;}
+        </style>
+        <script src="js/lib_tree.js" defer></script>
+        <script src="b.js" defer></script>
+        <script src="a.js" defer></script>
+    </head>
+    <body>
+        <p class="tree" ></p>
+        <form>
+            Node size: <input id="nodeSize" type="range" min="0" max="80"> 
+            New: <input type="text" id="newVal"> 
+            <button id="add" type="button">Add</button>
+            Scroll X: <input id="posX" type="range" min="-100" max="100"> 
+            Scroll Y: <input id="posY" type="range" min="-100" max="100">
+            Search For: <input type="text" id="query"> 
+            <button id="dfs" type="button">Depth First</button>
+            <button id="bfs" type="button">Breadth First</button>
+        </form>
+        <canvas id="canv">
+        </canvas>
+    </body>
+</html>
