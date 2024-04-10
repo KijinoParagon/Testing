@@ -97,6 +97,10 @@ sizeSlide.addEventListener("input", ()=> {
   printTree(tree);
 });
 
+spSlide.addEventListener("input", ()=>{
+  sp = parseInt(spSlide.value);
+})
+
 document.querySelector("#add").addEventListener("click", ()=> {
   ctx.clearRect(0, 0, canvas.height*2, canvas.width*2);
   insert(new Leaf({id: t, name: document.querySelector("#newVal").value}), tree);

@@ -53,7 +53,7 @@ async function dfs(tree){
       var prom = new Promise(function(resolve){
         setTimeout(()=>{
             resolve(1);
-        }, 1000);
+        }, 100 * sp);
     });
       var wait = await prom;
 
@@ -116,7 +116,7 @@ async function bfs(tree){
       var prom = new Promise(function(resolve){
         setTimeout(()=>{
             resolve(1);
-        }, 100);
+        }, 100 * sp);
     });
       var wait = await prom;
 

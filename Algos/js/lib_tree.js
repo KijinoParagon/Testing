@@ -1,5 +1,7 @@
 var sizeSlide = document.querySelector("#nodeSize");
 var size = parseInt(sizeSlide.value);
+var spSlide = document.querySelector("#sp");
+var sp = parseInt(spSlide.value);
 class Leaf {
   constructor(value)
   {
