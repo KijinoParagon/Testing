@@ -1,7 +1,11 @@
-var sizeSlide = document.querySelector("#nodeSize");
-var size = parseInt(sizeSlide.value);
-var spSlide = document.querySelector("#sp");
-var sp = parseInt(spSlide.value);
+/*
+  Parameters: value
+  Returns: New Leaf
+  Properties:
+      value - The value of the leaf
+      left - The left child leaf
+      right - The right child leaf
+*/
 class Leaf {
   constructor(value)
   {
@@ -11,27 +15,37 @@ class Leaf {
   }
 }
 
+/*
+  Parameters: 
+    tree - A balanced tree made from Leaf objects
+  Returns: Current depth of the tree
+  Presumes that the tree is balanced properly
+  Looks at the deepest left node
+*/
 function getDepth(tree)
 {
   var depth = 1;
-    var node = tree;
-    //Find the deepest depth, which will always be to the left
-    while(true)
+  var node = tree;
+  while(true)
+  {
+    if(node.left)
     {
-      if(node.left)
-      {
-        node = node.left;
-        depth++;
-      }
-      else {
-        break
-      }
+      node = node.left;
+      depth++;
+      continue;
+    }
+    return depth;
         
   }
-
-  return depth;
 }
 
+/*
+  Parameters: 
+      newLeaf - The new Leaf object to add
+      tree - The tree of Leaf objects to add the newLeaf to
+  Returns: void
+  Presumes that the tree is balanced properly
+*/
 function insert (newLeaf, tree) {
     var depth = 1;
     var node = tree;
