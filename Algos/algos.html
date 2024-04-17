@@ -6,7 +6,7 @@
             #canv { background-color: white;}
         </style>
         <script src="js/lib_tree.js" defer></script>
-        <script src="b.js" defer></script>
+        <script src="js/lib_treeExtensions.js" defer></script>
         <script src="a.js" defer></script>
     </head>
     <body>
@@ -20,6 +20,9 @@
             Search For: <input type="text" id="query"> 
             <button id="dfs" type="button">Depth First</button>
             <button id="bfs" type="button">Breadth First</button>
+            <br>
+            Search Speed: <input id="sp" type="range" min="0" max="50"> 
+            <button id="sort" type="button">Sort</button>
         </form>
         <canvas id="canv">
         </canvas>

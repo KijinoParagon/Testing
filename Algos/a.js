@@ -1,3 +1,8 @@
+var sizeSlide = document.querySelector("#nodeSize");
+var size = parseInt(sizeSlide.value);
+var spSlide = document.querySelector("#sp");
+var sp = parseInt(spSlide.value);
+
 var canvas = document.querySelector("#canv");
 var ctx = canvas.getContext("2d");
 
@@ -8,7 +13,7 @@ var posY = 0;
 
 
 
-function printTree(tree){
+function printTree(tree, canv){
   var list = [{node: tree, depth: 1}];
   var currentDepth = 1;
   var column = 1;
@@ -41,22 +46,22 @@ function printTree(tree){
     var y = (size + padding) * leaf.depth;
     x += posX * size/2;
     y += posY * size/2;
-    ctx.beginPath();
-    ctx.lineWidth = 1;
-    ctx.arc(x, y, size, 0, 2 * Math.PI);
-    ctx.fillStyle="red";
-    ctx.fill();
-    ctx.stroke();
-    ctx.font = (size/3) + "px Arial";
-    ctx.fillStyle="black";
-    ctx.fillText(leaf.node.value.name, x-size + 4, y);
+    canv.beginPath();
+    canv.lineWidth = 1;
+    canv.arc(x, y, size, 0, 2 * Math.PI);
+    canv.fillStyle="red";
+    canv.fill();
+    canv.stroke();
+    canv.font = (size/3) + "px Arial";
+    canv.fillStyle="black";
+    canv.fillText(leaf.node.value.name, x-size + 4, y);
     if(leaf.parentX)
     {
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.strokeStyle = "red";
-      ctx.lineTo(leaf.parentX, leaf.parentY);
-      ctx.stroke();
+      canv.beginPath();
+      canv.moveTo(x, y);
+      canv.strokeStyle = "red";
+      canv.lineTo(leaf.parentX, leaf.parentY);
+      canv.stroke();
     }
 
     if(leaf.node.left) list.push({node: leaf.node.left, depth: leaf.depth + 1, parentX: x, parentY: y});
@@ -74,7 +79,7 @@ for(var i = 0; i < names.length; i++)
   ids.push(i + 1);
 }
 
-var tree = new Leaf({id: 0, name: "Saverem"})
+var tree = new Leaf({id: 0, name: "Saverem"});
 var t = 1;
 names.forEach((n) =>{
   insert(new Leaf({id: t, name: n}), tree);
@@ -82,7 +87,7 @@ names.forEach((n) =>{
 
 });
 
-printTree(tree);
+printTree(tree, ctx);
 
 //get the depth
 //max width = 2^depth or math.pow(2, depth);
@@ -94,26 +99,30 @@ sizeSlide.addEventListener("input", ()=> {
   ctx.clearRect(0, 0, canvas.height*2, canvas.width*2);
   size=parseInt(sizeSlide.value);
   //console.log("Here");
-  printTree(tree);
+  printTree(tree, ctx);
 });
+
+spSlide.addEventListener("input", ()=>{
+  sp = parseInt(spSlide.value);
+})
 
 document.querySelector("#add").addEventListener("click", ()=> {
   ctx.clearRect(0, 0, canvas.height*2, canvas.width*2);
   insert(new Leaf({id: t, name: document.querySelector("#newVal").value}), tree);
   t++;
-  printTree(tree);
+  printTree(tree, ctx);
 });
 
 document.querySelector("#posX").addEventListener("input", ()=> {
   posX = parseInt(document.querySelector("#posX").value);
   ctx.clearRect(0, 0, canvas.height*2, canvas.width*2);
-  printTree(tree);
+  printTree(tree, ctx);
 });
 
 document.querySelector("#posY").addEventListener("input", ()=> {
   posY = parseInt(document.querySelector("#posY").value);
   ctx.clearRect(0, 0, canvas.height*2, canvas.width*2);
-  printTree(tree);
+  printTree(tree, ctx);
 });
 
 document.querySelector("#bfs").addEventListener("click", ()=> {
@@ -123,5 +132,10 @@ document.querySelector("#bfs").addEventListener("click", ()=> {
 document.querySelector("#dfs").addEventListener("click", ()=> {
   dfs(tree);
 });
-//document.querySelector(".tree").innerHTML = printTree(tree);
+
+document.querySelector("#sort").addEventListener("click", ()=> {
+  ctx.clearRect(0, 0, canvas.height*2, canvas.width*2);
+  sort(tree);
+  printTree(tree, ctx);
+});
 

@@ -17,7 +17,7 @@ async function dfs(tree){
       if(!list.length)
         break;
         ctx.clearRect(0, 0, canvas.height*2, canvas.width*2);
-        printTree(tree);
+        printTree(tree, ctx);
       var leaf = list.pop();
       
       if(leaf.depth > currentDepth){
@@ -53,7 +53,7 @@ async function dfs(tree){
       var prom = new Promise(function(resolve){
         setTimeout(()=>{
             resolve(1);
-        }, 1000);
+        }, 100 * sp);
     });
       var wait = await prom;
 
@@ -80,7 +80,7 @@ async function bfs(tree){
       if(!list.length)
         break;
         ctx.clearRect(0, 0, canvas.height*2, canvas.width*2);
-        printTree(tree);
+        printTree(tree, ctx);
       var leaf = list.shift();
       if(leaf.depth > currentDepth){
         currentDepth ++;
@@ -116,7 +116,7 @@ async function bfs(tree){
       var prom = new Promise(function(resolve){
         setTimeout(()=>{
             resolve(1);
-        }, 100);
+        }, 100 * sp);
     });
       var wait = await prom;
 
@@ -125,3 +125,20 @@ async function bfs(tree){
     
   }
   
+//Incomplete
+async function sort(tree){
+  console.log("Sort");
+  if(tree.left.value.name > tree.value.name)
+  {
+    var temp = tree.value;
+    tree.value = tree.left.value;
+    tree.left.value = temp;
+    
+  }
+  var prom = new Promise(function(resolve){
+    setTimeout(()=>{
+        resolve(1);
+    }, 10 * sp);
+  });
+  var wait = await prom;
+}
