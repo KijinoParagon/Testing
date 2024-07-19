@@ -3,10 +3,12 @@
   <head>
     <link rel="stylesheet" href="css/gameStyles.css">
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="src/components/keyboard.js" defer></script>
+    <!--script src="src/components/keyboard.js" defer></script>
     <script src="src/components/player.js" defer></script>
     <script src="src/components/mouse.js" defer></script>
-    <script src="src/debug/debug.js" defer></script>
+    <script src="src/components/terrain.js"></script>
+    <script src="src/debug/debug.js" defer></script-->
+    <script src="src/vr.js"></script>
   </head>
   <body style="margin: 0px; padding: 0px;">
     <div style="z-index: 1; position: absolute; left: 0px; right: 0px; height: 100%; width: 100%;">
@@ -23,15 +25,7 @@
         <a-entity id="player" position="0 1.6 0" player keyboardcontrols>
           <a-entity id="camera" camera look-controls>
             <a-cursor>
-              <!--<a-sphere position="1 0 0" id="right" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
-              https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
-              <a-sphere position="-1 0 0" id="left" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
-              https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
-              <a-sphere position="0 .5 0" id="back" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
-              https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
-              <a-sphere position="0 -.5 0" id="front" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
-              https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
-              -->
+              <!--Put cursor stuff here-->
             </a-cursor>
             <a-entity oculus-touch-controls="hand: left"></a-entity>
             <a-entity oculus-touch-controls="hand: right"></a-entity>
@@ -40,7 +34,7 @@
         </a-entity>
         
         <a-entity cursor="rayOrigin:mouse"></a-entity>
-        <a-entity class="terrain" gltf-model="#mall"></a-entity>
+        <a-entity terrain gltf-model="#mall"></a-entity>
 
         <a-sphere position="0 3 -5" radius="1.25" color="#EF2D5E" material="src: img/bg.png;"></a-sphere>
         <a-sky color="green"></a-sky>

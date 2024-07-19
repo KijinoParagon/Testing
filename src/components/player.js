@@ -1,4 +1,4 @@
-AFRAME.registerComponent('player', {
+var player = AFRAME.registerComponent('player', {
 
     schema: {
         speed: {type: 'vec3', default: {x: 0, y: 1, z: 0}},
@@ -16,11 +16,6 @@ AFRAME.registerComponent('player', {
     tick: function() {
         this.moveUpdate();
         var quaternion = new THREE.Quaternion();
-        //console.log(document.querySelector("#camera").object3D.quaternion._y * document.querySelector("#camera").object3D.quaternion._w + "  " + Math.cos(document.querySelector("#camera").object3D.rotation._y));
-        //console.log(this.data.speed);
-        //console.log(Math.sin(document.querySelector("#camera").object3D.rotation._y));
-        //console.log(Math.cos(180));
-        //this.data.camera = document.querySelector("#camera").object3D.getWorldQuaternion();
     },
 
     moveUpdate: function() {
@@ -43,3 +38,5 @@ AFRAME.registerComponent('player', {
     }
 
 });
+
+export default player;
