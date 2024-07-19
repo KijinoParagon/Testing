@@ -1,0 +1,109 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+div.response {
+    margin-left: 10%;
+}
+
+div.boquet {
+    width: 100%;
+}
+
+div.boquet::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+div.flower {
+    float: left;
+    width: 33%;
+}
+
+div.flower * {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+div.center *{
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+div.boquet h1{
+    text-align: center;
+}
+
+div.col {
+    display: block;
+    width: 45%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    float: left;
+}
+
+div.music {
+    font-size: 1.5em;
+    margin-left: 0px;
+    line-height: 1.5em;
+    color: red;
+}
+
+div.name {
+    margin-top: 2vh;
+}
+
+span.song {
+    color: white
+}
+
+img.ao {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    opacity: 50%;
+}
+
+img.one {
+    top: 375vh;
+    transform: rotate(20deg);
+    left: 50vw;
+}
+
+img.two {
+    width: 40%;
+    left: 60vw;
+    top: 30vh;
+    transform: rotate(0deg) scaleX(-1);
+    
+}
+
+img.three {
+    width: 40%;
+    top: -2vh;
+}
+
+img.four {
+    top: 200vh;
+    transform: rotate(35deg);
+    left: 25vw;
+}
+
+#hawaii {
+    display: block;
+    width: 75vw;
+}
