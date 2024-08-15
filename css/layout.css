@@ -1,5 +1,18 @@
 /*
-    Reset stylesheet/Default Font Color
+
+    Sec 1. Reset Styles
+    Sec 2. Background/Font Styles
+    Sec 3. Header Styles
+    Sec 4. Nav Styles
+    Sec 5. Main Content Styles
+
+*/
+
+/*
+    Sec 1. Reset Styles
+===============================
+=========Reset styles==========
+===============================
 */
 * {
     margin: 0px;
@@ -9,8 +22,12 @@
 
 
 /*
-    Background styles and font size
+    Sec 2. Background/Font Styles
+===============================
+====Background/Font Styles=====
+===============================
 */
+
 html {
     background-color: rgb(160, 160, 160);
     background-image: url(../img/black.jpg), url(../img/bg.png);
@@ -21,7 +38,11 @@ html {
     background-blend-mode: overlay;
     min-height: 100%;
     width: 100%;
-    font-size: 15px;
+    font-size: 23px;
+}
+
+nav {
+    font-size: 0.5em;
 }
 
 @media (max-width: 600px)
@@ -32,9 +53,7 @@ html {
     }
 }
 
-/*
-    Create the body background on desktop
-*/
+/*Create the body background on desktop*/
 @media (min-width: 601px)
 {
     body {
@@ -42,116 +61,161 @@ html {
         display: block;
         width: 90%;
         min-height: 100vh;
-        height: 2000px;
+        height: 100%;
+        overflow: auto;
         margin: auto;
         background-blend-mode: lighten;
     }
 }
 
 /*
-    Header styles
+    Sec 3. Header Styles
+===============================
+=========Header Styles=========
+===============================
 */
-
 header {
     display: block;
     width: 100%;
     min-height: 15vh;
 }
 
-header h1 {
+header #headerText {
     font-family: "Gill Sans", sans-serif;
     font-weight: 100;
     text-align: center;
     letter-spacing: 0.5em;
+    display: block;
+    height: 100%;
+    min-height: 100%;
+    margin: auto;
+}
+
+header #bannerContainer {
+    display: block;
+    overflow: auto;
+}
+
+header #logo {
+    width: 10%;
+    display: block;
+    float: left;
+    
 }
 
 /*
-    Nav styles
+    Sec 4. Nav Styles
+===============================
+==========Nav styles===========
+===============================
 */
 
 nav {
-    position: absolute;
-    width: 100%;
+position: absolute;
+width: 100%;
 }
 
 .navSection {
-    display: block;
-    background-image: linear-gradient(to bottom right, darkgrey, darkslategrey);
-    float: left;
-    width: 100%;
-    margin: auto;
-    position: relative;
+display: block;
+background-image: linear-gradient(to bottom right, darkgrey, darkslategrey);
+float: left;
+width: 100%;
+margin: auto;
+position: relative;
+font-size: 2.5em;
+overflow: hidden;
 }
 
-.navSection {
-    font-size: 2.5em;
-}
 .subNav {
-    font-size: 1.5em;
-    display: none;
+font-size: 1.5em;
+display: none;
 }
 
 @media (min-width: 601px)
 {
 
-    nav {
-        position: relative;
-        clear: both;
-    }
+nav {
+    position: relative;
+    clear: both;
+}
 
-    /*nav li:hover + .subNav, .subNav:hover {
-        display: block;
-    }*/
+/*nav li:hover + .subNav, .subNav:hover {
+    display: block;
+}*/
 
-    .subNav {
-        position: absolute;
-        top: 100%;
-        left: 0px;
-    }
+.subNav {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+}
 
-    .clearfix {
-        clear:both;
-    }
+.clearfix {
+    clear:both;
+}
 }
 
 .animBox {
-    width: 100%;
-    height: 600px;
-    outline: 5px inset green;
-    /*background-color: hsl(0, 0%, 30%);*/
+width: 100%;
+height: 600px;
+outline: 5px inset green;
+/*background-color: hsl(0, 0%, 30%);*/
 }
 
-    /*
-    nav ul {
-        list-style-type: none;
-        display: block;
-        width: 100%;
-        min-width: 100%;
-        position: relative;
-    }
+/*
+nav ul {
+    list-style-type: none;
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    position: relative;
+}
 
-    nav li {
-        display: block;
-        background-image: linear-gradient(to bottom right, orchid, rebeccapurple);
-        float: left;
-        width: 25%;
-        margin: auto;
-        position: relative;
-    }
+nav li {
+    display: block;
+    background-image: linear-gradient(to bottom right, orchid, rebeccapurple);
+    float: left;
+    width: 25%;
+    margin: auto;
+    position: relative;
+}
 
-    
-    nav ul ul {
-        position: absolute;
-        left: 0;
-        right: 0;
-        display: none;
-    }
 
-    nav li:hover ul, nav li ul:hover {
-        display:block;
-    }
+nav ul ul {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: none;
+}
 
-    nav ul ul li {
-        float: none;
-        width: 100%;
-    }
+nav li:hover ul, nav li ul:hover {
+    display:block;
+}
+
+nav ul ul li {
+    float: none;
+    width: 100%;
+}
+
+
+/*
+    Sec 1. Reset Styles
+===============================
+=========Reset styles==========
+===============================
+*/
+
+main {
+    height: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    overflow: auto;
+}
+
+main .mainColumn {
+    width: 40%;
+    float: left;
+    height: 100%;
+    min-height: 100%;  
+    text-align: center; 
+    padding: 5%;
+}
