@@ -11,3 +11,8 @@ async function loadHeader() {
     var header = await getComponent("https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/header.html");
     document.querySelector('header').appendChild(header);
 }
+
+async function loadView(controller, view) {
+    var main = await getComponent("https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/" + controller + "/" + view + ".html");
+    document.querySelector('main').appendChild(main);
+}
