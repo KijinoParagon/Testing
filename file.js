@@ -3,16 +3,21 @@ async function getComponent(url) {
     var text = await response.text();
     var component = document.createElement('div');
     component.innerHTML = text;
-    component = component.firstChild;
-    return component;
+    return component.childNodes;
 }
 
 async function loadHeader() {
-    var header = await getComponent("https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/header.html");
-    document.querySelector('header').appendChild(header);
+    var header = await getComponent("https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/Views/Shared/header.html");
+    var container = document.querySelector('header');
+    header.forEach(element => {
+        container.append(element);
+    });
 }
 
 async function loadView(controller, view) {
-    var main = await getComponent("https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/" + controller + "/" + view + ".html");
-    document.querySelector('main').appendChild(main);
+    var main = await getComponent("https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/Views/" + controller + "/" + view + ".html");
+    var container = document.querySelector('main');
+    main.forEach(element => {
+        container.append(element);
+    });
 }
