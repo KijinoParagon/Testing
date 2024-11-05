@@ -8,6 +8,13 @@
 
 */
 
+.permanent-marker-regular {
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
 /*
     Sec 1. Reset Styles
 ===============================
@@ -29,27 +36,30 @@
 */
 
 html {
-    background-color: rgb(160, 160, 160);
-    background-image: url(../img/black.jpg), url(../img/bg.png);
-    background-repeat: no-repeat;
-    background-size: 150%, 150%, 150%, 150%;
-    background-attachment: fixed;
-    background-position-x: 50%;
-    background-blend-mode: overlay;
+    background-color: black;
     min-height: 100%;
     width: 100%;
-    font-size: 23px;
 }
 
 nav {
     font-size: 0.5em;
 }
 
-@media (max-width: 600px)
+@media (min-width: 600px)
 {
     html {
-        background-size: 300%, 300%, 150%, 150%;
         font-size: 20px;
+        background-color: rgb(160, 160, 160);
+        background-color: rgb(63, 63, 63);
+        background-image: url(../img/bg.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        background-position-x: 50%;
+        background-blend-mode: overlay;
+        min-height: 100%;
+        width: 100%;
+        font-size: 23px;
     }
 }
 
@@ -81,8 +91,8 @@ header {
 }
 
 header #headerText {
-    font-family: "Gill Sans", sans-serif;
-    font-weight: 100;
+    font-family: "Permanent Marker", "Gill Sans", sans-serif;
+    font-weight: 5;
     text-align: center;
     letter-spacing: 0.5em;
     display: block;
@@ -133,6 +143,10 @@ display: none;
 
 @media (min-width: 601px)
 {
+
+    .navSection {
+        width: 20%;
+    }
 
 nav {
     position: relative;
@@ -211,6 +225,8 @@ main {
     overflow: auto;
 }
 
+@media(min-width: 680px)
+{
 main .mainColumn {
     width: 40%;
     float: left;
@@ -218,4 +234,5 @@ main .mainColumn {
     min-height: 100%;  
     text-align: center; 
     padding: 5%;
+}
 }

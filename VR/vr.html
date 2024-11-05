@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style="margin: 0px; padding: 0px;">
   <head>
-    <link rel="stylesheet" href="css/gameStyles.css">
+    <link rel="stylesheet" href="../ss/gameStyles.css">
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="src/components/keyboard.js" defer></script>
     <script src="src/components/player.js" defer></script>
@@ -10,10 +10,10 @@
   </head>
   <body style="margin: 0px; padding: 0px;">
     <div style="z-index: 1; position: absolute; left: 0px; right: 0px; height: 100%; width: 100%;">
-      <a-scene embedded="true" style="z-index: 0"cursor="rayOrigin: mouse;">
+      <a-scene fog="type: linear; color: #04751c; density: 3;" embedded="true" style="z-index: 0"cursor="rayOrigin: mouse;">
         <!--Assets-->
         <a-assets>
-          <a-asset-item id="mall" src="https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/VR/src/models/RoughMapBake.glb"></a-asset-item>
+          <a-asset-item id="mall" src="https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/VR/src/models/mallExport.glb"></a-asset-item>
         </a-assets>
 
         
@@ -33,6 +33,14 @@
               https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
               -->
             </a-cursor>
+            
+            <a-entity position="-0.015 -0.005 -0.01" scale="0.006 0.006 0.006"> 
+              <a-plane idcolor="yellow" position="0 0.3 0" scale="0.25 0.25 0.25"></a-plane>
+              <a-plane color="yellow" position="0 -0.3 0" scale="0.25 0.25 0.25"></a-plane>
+              <a-plane color="yellow" position="-0.3 0 0" scale="0.25 0.25 0.25"></a-plane>
+              <a-plane color="yellow" position="0.3 0 0" scale="0.25 0.25 0.25"></a-plane>
+
+            </a-entity>
             <a-entity oculus-touch-controls="hand: left"></a-entity>
             <a-entity oculus-touch-controls="hand: right"></a-entity>
           </a-entity>
@@ -41,9 +49,10 @@
         
         <a-entity cursor="rayOrigin:mouse"></a-entity>
         <a-entity class="terrain" gltf-model="#mall"></a-entity>
+        <a-plane scale="1000 1000 1" rotation="-90 0 0" class="terrain" color="darkgreen"></a-plane>
 
         <a-sphere position="0 3 -5" radius="1.25" color="#EF2D5E" material="src: https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/img/bg.png;"></a-sphere>
-        <a-sky color="green"></a-sky>
+        <a-sky material="color: #de00aa; fog: true;"></a-sky>
       </a-scene>
     </div>
     <div id="cu" class="tcMarker" name="w"></div>
