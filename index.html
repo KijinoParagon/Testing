@@ -22,13 +22,19 @@
             loadHeader();
         </script>
         <script defer>
+            function navToggle(){
+                console.log("clicked");
+                document.querySelector("nav").classList.toggle("navDisplay");
+                document.querySelector("#navicon").classList.toggle("change");
+            }
             var params = new URLSearchParams(document.location.search);
             var action = params.get("action");
-            if(action == null)
-            {
+            if(action == null){
                 action = "home";
             }
             loadView("Home", action);
+
+            
         </script>
     </body>
 </html>
