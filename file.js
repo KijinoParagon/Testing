@@ -7,7 +7,7 @@ async function getComponent(url) {
 }
 
 async function loadHeader() {
-    var header = await getComponent("https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/Views/Shared/header.html");
+    var header = await getComponent("https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@latest/Views/Shared/header.html");
     var container = document.querySelector('header');
     header.forEach(element => {
         container.append(element);
@@ -15,7 +15,7 @@ async function loadHeader() {
 }
 
 async function loadView(controller, view) {
-    var main = await getComponent("https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/Views/" + controller + "/" + view + ".html");
+    var main = await getComponent("https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@latest/Views/" + controller + "/" + view + ".html");
     var container = document.querySelector('main');
     main.forEach(element => {
         container.append(element);
