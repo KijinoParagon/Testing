@@ -4,7 +4,27 @@ html {
     font-size: 18px;
 }
 
-span.big {
-    font-size: 2em;
+@media (max-width: 800px) {
+    html {
+        font-size: 30px;
+    }
+}
+
+a {
+    color: white;
+    position: relative;
+}
+
+span a {
     color: red;
+}
+
+span.big, dt {
+    font-size: 1.5em;
+    color: red;
+}
+
+section#takeaways {
+    width: 80%;
+    margin: auto;
 }
