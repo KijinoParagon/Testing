@@ -1,0 +1,10 @@
+html {
+    background-color: black;
+    color: white;
+    font-size: 18px;
+}
+
+span.big {
+    font-size: 2em;
+    color: red;
+}
