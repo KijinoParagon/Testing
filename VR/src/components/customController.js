@@ -9,7 +9,7 @@ AFRAME.registerComponent('custom-controls', {
       var el = this.el;
       var controlConfiguration = {
         hand: hand,
-        model: false,
+        model: true,
         orientationOffset: {x: 0, y: 0, z: hand === 'left' ? 90 : -90}
       };
   
