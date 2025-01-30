@@ -7,8 +7,8 @@ AFRAME.registerComponent('player', {
     },
 
     init: function () {
+        console.log(this);
         this.data.camera = document.querySelector("#camera").object3D;
-        console.log(this.data.camera);
         document.querySelector("a-scene").addEventListener('enter-vr', () => this.data.height = 0);
         document.querySelector("a-scene").addEventListener('exit-vr', () => this.data.height = 1.6);
     },
@@ -16,11 +16,6 @@ AFRAME.registerComponent('player', {
     tick: function() {
         this.moveUpdate();
         var quaternion = new THREE.Quaternion();
-        //console.log(document.querySelector("#camera").object3D.quaternion._y * document.querySelector("#camera").object3D.quaternion._w + "  " + Math.cos(document.querySelector("#camera").object3D.rotation._y));
-        //console.log(this.data.speed);
-        //console.log(Math.sin(document.querySelector("#camera").object3D.rotation._y));
-        //console.log(Math.cos(180));
-        //this.data.camera = document.querySelector("#camera").object3D.getWorldQuaternion();
     },
 
     moveUpdate: function() {

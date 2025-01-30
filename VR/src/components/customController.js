@@ -1,7 +1,7 @@
 AFRAME.registerComponent('custom-controls', {
     schema: {
       hand: {default: ''},
-      model: {default: '../models/untitled.gltf'}
+      model: {default: 'src/models/untitled.gltf'}
     },
   
     update: function () {
