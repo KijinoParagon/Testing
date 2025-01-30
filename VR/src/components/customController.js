@@ -3,6 +3,10 @@ AFRAME.registerComponent('custom-controls', {
       hand: {default: ''},
       model: {default: 'src/models/untitled.gltf'}
     },
+
+    init: function() {
+        console.log(this);
+    },
   
     update: function () {
       var hand = this.data.hand;
@@ -15,7 +19,7 @@ AFRAME.registerComponent('custom-controls', {
   
       // Build on top of controller components.
       el.setAttribute('vive-controls', controlConfiguration);
-      el.setAttribute('oculus-touch-controls', controlConfiguration);
+      el.setAttribute('oculus-touch-controls', {hand: this.data.hand, model: false});
       el.setAttribute('windows-motion-controls', controlConfiguration);
   
       // Set a model.
