@@ -1,0 +1,12 @@
+1. pc
+    -Inherits rigigbody
+2. Entity/npc
+    -Inherits rigidbody
+3. Input System
+    -Keyboard
+    -VR
+    -Mouse
+4. Objects
+    -Inherits rigidbody
+5. Rigidbody
+    -Collision detection
