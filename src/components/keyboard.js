@@ -2,6 +2,7 @@ var keyboardControls = AFRAME.registerComponent('keyboardcontrols', {
 
   schema: {
     speed: {type: 'vec3', default: {x: 0, y: 1, z: 0}},
+    runMult: 1,
     hand: {default: 'left'},
     height: {default: 1.6},
     player: {}
@@ -47,6 +48,11 @@ var keyboardControls = AFRAME.registerComponent('keyboardcontrols', {
           break;
       }
 
+      if(evt.shiftKey)
+      {
+        runMult = 2;
+      }
+
       (sp.x || sp.y) ? this.moveupdate({detail: sp}) : sp.x++;
     });
 
@@ -66,6 +72,7 @@ var keyboardControls = AFRAME.registerComponent('keyboardcontrols', {
           sp.x = 0;
           break;
       }
+      console.log(evt);
 
       (!sp.x || !sp.y) ? this.moveupdate({detail: sp}) : sp.x++;
     });
@@ -73,14 +80,15 @@ var keyboardControls = AFRAME.registerComponent('keyboardcontrols', {
     document.addEventListener('thumbstickmoved', function(evt) {
       self.moveupdate(evt);
     });
+
   },
 
   moveupdate: function(evt) {    
-    var i = evt.detail.x/8 * Math.cos(document.querySelector("#camera").object3D.rotation._y); 
-    var j = evt.detail.y/8 * Math.cos(document.querySelector("#camera").object3D.rotation._y);//done
+    var i = evt.detail.x/8 * runMult * Math.cos(document.querySelector("#camera").object3D.rotation._y); 
+    var j = evt.detail.y/8 * runMult * Math.cos(document.querySelector("#camera").object3D.rotation._y);//done
 
-    i += evt.detail.y/8 * Math.sin(document.querySelector("#camera").object3D.rotation._y);//done
-    j += evt.detail.x/8 * Math.sin(document.querySelector("#camera").object3D.rotation._y) * -1;
+    i += evt.detail.y/8 * runMult * Math.sin(document.querySelector("#camera").object3D.rotation._y);//done
+    j += evt.detail.x/8 * runMult * Math.sin(document.querySelector("#camera").object3D.rotation._y) * -1;
 
     this.data.player.speed.x = i;
     this.data.player.speed.z = j;
