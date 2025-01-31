@@ -23,7 +23,7 @@
 
 
         <!--Objects-->
-        <a-entity static-body id="player" position="0 1 0" player keyboardcontrols>
+        <a-entity id="player" position="0 1 0" player keyboardcontrols>
           <a-entity id="camera" camera look-controls>
             <a-cursor>
               <!--<a-sphere position="1 0 0" id="right" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
@@ -47,8 +47,8 @@
             </a-entity>
             -->
           </a-entity>
-          <a-entity static-body custom-controls="hand: left"></a-entity>
-          <a-entity static-body custom-controls="hand: right"></a-entity>
+          <a-entity static-body="shape: sphere; sphere-radius: .2" custom-controls="hand: left"></a-entity>
+          <a-entity static-body="shape: sphere; sphere-radius: .2" custom-controls="hand: right"></a-entity>
         </a-entity>
         
         <a-entity cursor="rayOrigin:mouse"></a-entity>
