@@ -1,11 +1,20 @@
+const handStates = {
+  Closed: 1,
+  Open: 2,
+  Grab: 3
+};
+
 AFRAME.registerComponent('custom-controls', {
     schema: {
       hand: {default: ''},
-      model: {default: 'src/models/untitled.gltf'}
+      model: {default: 'src/models/untitled.gltf'},
+      state: {default: ''}
     },
 
     init: function() {
-        console.log(this);
+      this.el.object3D.position.y = 100000
+        document.querySelector("a-scene").addEventListener('enter-vr', () => this.el.object3D.position.y = 0);
+        document.querySelector("a-scene").addEventListener('exit-vr', () => this.el.object3D.position.y = 100000);
     },
   
     update: function () {

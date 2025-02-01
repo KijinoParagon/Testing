@@ -2,7 +2,7 @@
 <html style="margin: 0px; padding: 0px;">
   <head>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://kripken.github.io/ammo.js/builds/ammo.wasm.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/MozillaReality/ammo.js@8bbc0ea/builds/ammo.wasm.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.js"></script>
     <script src="src/components/keyboard.js" defer></script>
     <script src="src/components/player.js" defer></script>
@@ -12,7 +12,7 @@
   </head>
   <body style="margin: 0px; padding: 0px;">
     <div style="z-index: 1; position: absolute; left: 0px; right: 0px; height: 100%; width: 100%;">
-      <a-scene physics="debug: true" fog="type: linear; color: #04751c; density: 3;" embedded="true" style="z-index: 0"cursor="rayOrigin: mouse;">
+      <a-scene physics="driver: ammo; debug: true" fog="type: linear; color: #04751c; density: 3;" embedded="true" style="z-index: 0"cursor="rayOrigin: mouse;">
         <!--Assets-->
         <a-assets>
           <a-asset-item id="mall" src="https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/VR/src/models/mallExport.glb"></a-asset-item>
@@ -24,7 +24,7 @@
 
         <!--Objects-->
         <a-entity id="player" position="0 1 0" player keyboardcontrols>
-          <a-entity id="camera" camera look-controls>
+          <a-entity ammo-body="type: kinematic;" ammo-shape="type: sphere; fit: manual; sphereRadius: 0.5;" id="camera" camera look-controls>
             <a-cursor>
               <!--<a-sphere position="1 0 0" id="right" radius="0.2" material="opacity: 0.4; color:orange; side: back; src:
               https://png.pngtree.com/png-vector/20200724/ourmid/pngtree-hud-interface-ui-cyber-innovative-png-image_2312679.jpg;"></a-sphere>
@@ -47,8 +47,8 @@
             </a-entity>
             -->
           </a-entity>
-          <a-entity static-body="shape: sphere; sphere-radius: .2" custom-controls="hand: left"></a-entity>
-          <a-entity static-body="shape: sphere; sphere-radius: .2" custom-controls="hand: right"></a-entity>
+          <a-entity ammo-body="type: kinematic;" ammo-shape="type: sphere; fit: manual; sphereRadius: 0.2" custom-controls="hand: left"></a-entity>
+          <a-entity ammo-body="type: kinematic;" ammo-shape="type: sphere; fit: manual; sphereRadius: 0.2" custom-controls="hand: right"></a-entity>
         </a-entity>
         
         <a-entity cursor="rayOrigin:mouse"></a-entity>
@@ -59,13 +59,20 @@
           <a-entity position="0, 8, 0" class="terrain" gltf-model="#mall" scale="-1, -1, 1"></a-entity>  
         </a-entity-->
         
-        <a-plane static-body scale="1000 1000 1" position="0 0 0" rotation="-90 0 0" color="darkgreen"></a-plane>
+        <a-plane ammo-body="type: static;" ammo-shape="type: box; fit: all; " scale="1000 1000 1" position="0 0 0" rotation="-90 0 0" color="darkgreen"></a-plane>
         
-        <a-sphere static-body position="0 3 -5" radius="1.25" material="roughness: 0.75; src: https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/img/bg.png;"></a-sphere>
-        <a-sphere dynamic-body position="-2 2 -5" radius="1.25" material="roughness: 0.75; src: https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/img/bg.png;"></a-sphere>
+        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="100 10 10" position="0 0 50"></a-box>
+        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="100 10 10" position="0 0 -50"></a-box>
+        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="10 10 100" position="50 0 0"></a-box>
+        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="10 10 100" position="-50 0 0"></a-box>
+        
+        <a-sphere ammo-body="type: static" ammo-shape="type: sphere; fit: manual; sphereRadius: 1" position="0 3 -5" radius="1.25" material="roughness: 0.75; src: https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/img/bg.png;"></a-sphere>
+        <a-sphere ammo-body="type: dynamic" ammo-shape="type: sphere; fit: manual; sphereRadius: 1" position="-2 2 -5" radius="1.25" material="roughness: 0.75; src: https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/img/bg.png;"></a-sphere>
         
         <a-sky roughness="1" material="src: #skybox; " ></a-sky>
         <a-light color="#8b9ad9" intensity="0.1" position="1 0 1"></a-light> 
+        <a-light color="#FFFFFF" intensity="0.01" position="1 100 1"></a-light> 
+
       </a-scene>
     </div>
   </body>
