@@ -61,6 +61,12 @@
         </a-entity-->
         <a-entity position="0, 0, 20" class="terrain" ammo-body="type: static" gltf-model="url(https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/VR/src/models/car.glb)"></a-entity>
         
+        <a-plane ammo-body="type: static;" ammo-shape="type: box; fit: all; " scale="1000 1000 1" position="0 0 0" rotation="-90 0 0" color="darkgreen"></a-plane>
+
+        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="100 10 10" position="0 0 50"></a-box>
+        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="100 10 10" position="0 0 -50"></a-box>
+        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="10 10 100" position="50 0 0"></a-box>
+        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="10 10 100" position="-50 0 0"></a-box>
         
         <a-sphere ammo-body="type: static" ammo-shape="type: sphere; fit: manual; sphereRadius: 1" position="0 3 -5" radius="1.25" material="roughness: 0.75; src: https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/img/bg.png;"></a-sphere>
         <a-sphere ammo-body="type: dynamic" ammo-shape="type: sphere; fit: manual; sphereRadius: 1" position="-2 2 -5" radius="1.25" material="roughness: 0.75; src: https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/img/bg.png;"></a-sphere>
