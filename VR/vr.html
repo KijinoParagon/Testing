@@ -17,7 +17,6 @@
         <a-assets>
           <a-asset-item id="car" src="https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/VR/src/models/car.glb"></a-asset-item>
 
-          <a-asset-item id="mall" src="https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/VR/src/models/mallExport.glb"></a-asset-item>
           <img id="skybox" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Earth_lights_vs_population_density.png/1200px-Earth_lights_vs_population_density.png?20160222213">
         </a-assets>
 
@@ -60,14 +59,8 @@
           <a-entity position="0, 8, 0" class="terrain" gltf-model="#mall" scale="1, -1, 1"></a-entity>
           <a-entity position="0, 8, 0" class="terrain" gltf-model="#mall" scale="-1, -1, 1"></a-entity>  
         </a-entity-->
-        <a-entity position="0, 20, 0" class="terrain" gltf-model="#car"></a-entity>
+        <a-entity position="0, 0, 20" class="terrain" ammo-body="type: static" gltf-model="url(https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/VR/src/models/car.glb)"></a-entity>
         
-        <a-plane ammo-body="type: static;" ammo-shape="type: box; fit: all; " scale="1000 1000 1" position="0 0 0" rotation="-90 0 0" color="darkgreen"></a-plane>
-        
-        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="100 10 10" position="0 0 50"></a-box>
-        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="100 10 10" position="0 0 -50"></a-box>
-        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="10 10 100" position="50 0 0"></a-box>
-        <a-box ammo-body="type: static;" ammo-shape="type: box; fit: all;" scale="10 10 100" position="-50 0 0"></a-box>
         
         <a-sphere ammo-body="type: static" ammo-shape="type: sphere; fit: manual; sphereRadius: 1" position="0 3 -5" radius="1.25" material="roughness: 0.75; src: https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/img/bg.png;"></a-sphere>
         <a-sphere ammo-body="type: dynamic" ammo-shape="type: sphere; fit: manual; sphereRadius: 1" position="-2 2 -5" radius="1.25" material="roughness: 0.75; src: https://cdn.jsdelivr.net/gh/KijinoParagon/Portfolio@main/img/bg.png;"></a-sphere>
@@ -75,6 +68,8 @@
         <a-sky roughness="1" material="src: #skybox; " ></a-sky>
         <a-light color="#8b9ad9" intensity="0.1" position="1 0 1"></a-light> 
         <a-light color="#FFFFFF" intensity="0.01" position="1 100 1"></a-light> 
+
+        <a-light color="#FFFFFF" intensity="1000" position="0, 0, 0"></a-light>
 
       </a-scene>
     </div>
